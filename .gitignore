@@ -1,0 +1,5 @@
+.ipynb_checkpoints
+.ruff_cache
+labels_tusimple.json
+racetrack_via.json
+/racetrack_training_data
