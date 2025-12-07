@@ -20,7 +20,7 @@ Run the sampling script to select a subset of images evenly spaced across the da
 python sample_images.py <input_dir> --num_images <desired_number>
 ```
 
-This creates `racetrack_training_data/image/` with the sampled images, ready for annotation.
+This creates `racetrack_training_data/image/` with the sampled images renamed to `0000.jpg`, `0001.jpg`, etc. (preserving original extensions), ready for annotation.
 
 ## Step 2: Annotate with VIA
 
@@ -28,6 +28,7 @@ Use the [VIA annotation tool](https://www.robots.ox.ac.uk/~vgg/software/via/) to
 
 1. Download the VIA zip file and open `via.html` in a browser.
 2. Click `Add Files` and select your images.
+   - **Warning**: Images added to VIA do not persist on reload. Save your project regularly to avoid losing annotations.
 3. Select `polyline` from the `Region Shape` section.
 4. Draw polylines on each lane, starting from the bottom (highest y-value) to the top (lowest y-value). Use at least 6-7 points per lane for smooth curves.
    - Ensure x-coordinates are in order (increasing or decreasing consistently).

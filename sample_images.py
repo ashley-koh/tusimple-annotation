@@ -47,12 +47,14 @@ def main():
     # Create output directory if it doesn't exist
     os.makedirs(args.output_dir, exist_ok=True)
 
-    # Copy sampled images
-    for idx in indices:
+    # Copy and rename sampled images
+    for count, idx in enumerate(indices):
         src = os.path.join(args.input_dir, files[idx])
-        dst = os.path.join(args.output_dir, files[idx])
+        ext = os.path.splitext(files[idx])[1]
+        new_name = f"{count:04d}{ext}"
+        dst = os.path.join(args.output_dir, new_name)
         shutil.copy(src, dst)
-        print(f"Copied {files[idx]} to {args.output_dir}")
+        print(f"Copied {files[idx]} as {new_name} to {args.output_dir}")
 
 
 if __name__ == "__main__":
