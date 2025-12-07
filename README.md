@@ -5,14 +5,22 @@ This repository is a fork of the original [tusimple-annotation](https://github.c
 ## Overview
 
 The workflow consists of the following steps:
-1. **Collect Images**: Gather your raw images.
+1. **Sample Images**: Sample a subset of raw images for annotation.
 2. **Annotate with VIA**: Use the VGG Image Annotator (VIA) to label lanes.
 3. **Convert Annotations**: Convert VIA JSON to TuSimple JSON format.
 4. **Generate Dataset**: Create binary and instance masks, along with train/val splits.
 
-## Step 1: Collect Images
+## Step 1: Sample Images
 
-Place your raw images in a directory (e.g., `racetrack_training_data/image/`). Ensure they are in PNG format and sequentially named (e.g., `0000.png`, `0001.png`, etc.).
+Prepare an input directory containing your raw images, named in alphanumerical order (e.g., `0001.png`, `0002.png`, etc.). Images must be in a format readable by VIA (e.g., PNG, JPG).
+
+Run the sampling script to select a subset of images evenly spaced across the dataset:
+
+```bash
+python sample_images.py <input_dir> --num_images <desired_number>
+```
+
+This creates `racetrack_training_data/image/` with the sampled images, ready for annotation.
 
 ## Step 2: Annotate with VIA
 

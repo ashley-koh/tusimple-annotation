@@ -1,7 +1,6 @@
 import json
 import os
 import shutil
-from pathlib import Path
 
 import cv2
 import numpy as np
@@ -159,7 +158,7 @@ def generate_dataset(
         ]
         f.write("\n".join(lines))
 
-    print(f"Dataset generated successfully!")
+    print("Dataset generated successfully!")
     print(f"Training samples: {len(train_files)}")
     print(f"Validation samples: {len(val_files)}")
 
